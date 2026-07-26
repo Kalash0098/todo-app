@@ -46,13 +46,13 @@ resource "aws_security_group" "my_security_group" {
 #ec2 instance
 resource "aws_instance" "todo-app"{
     key_name=aws_key_pair.deployer.key_name
-    ami = "ami-0b6d9d3d33ba97d99"
+    ami = "ami-0d001f8052688dc45"
     instance_type = "t3.medium"
     security_groups = [aws_security_group.my_security_group.name]
 
     root_block_device {
         volume_size = 15
-        volume_type = "gp2"
+        volume_type = "gp3"
     }
     tags = {
         Name = "todo-app"
