@@ -34,8 +34,8 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
-                 sh "kubectl set image deployment/todo-app todo-app=${IMAGE_NAME}:${env.BUILD_NUMBER} --kubeconfig=/home/ubuntu/.kube/config"
-                 sh "kubectl rollout status deployment/todo-app --kubeconfig=/home/ubuntu/.kube/config"
+                sh "kubectl set image deployment/todo-app todo-app=${IMAGE_NAME}:${env.BUILD_NUMBER} --kubeconfig=/var/lib/jenkins/.kube/config"
+                sh "kubectl rollout status deployment/todo-app --kubeconfig=/var/lib/jenkins/.kube/config"
             }
         }
     }
