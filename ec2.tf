@@ -47,7 +47,7 @@ resource "aws_security_group" "my_security_group" {
 resource "aws_instance" "todo-app"{
     key_name=aws_key_pair.deployer.key_name
     ami = "ami-0b6d9d3d33ba97d99"
-    instance_type = "t2.medium"
+    instance_type = "t3.medium"
     security_groups = [aws_security_group.my_security_group.name]
 
     root_block_device {
